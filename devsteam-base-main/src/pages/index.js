@@ -33,7 +33,9 @@ export default function Home() {
           </div>
           <div className={styles.session}>
             <Subtitle subtitle="Outro jogo" />
-            <div>
+            <div className={styles.gameContainer}>
+              <GameCard img_url='/products/counter-strike.jpg' />
+              <GameCard img_url='/products/counter-strike.jpg' />
               <GameCard img_url='/products/counter-strike.jpg' />
             </div>
           </div>
