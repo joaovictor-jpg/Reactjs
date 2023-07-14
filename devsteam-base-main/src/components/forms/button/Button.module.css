@@ -1,5 +1,4 @@
 .btn {
-    width: 100%;
     padding: 15px 5px;
     border-radius: 10px;
     background: #549300;
@@ -9,6 +8,10 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.fullWidth {
+    width: 100%;
 }
 
 .btn:hover {

@@ -5,7 +5,8 @@ import styles from '@/styles/index.module.css'
 import NavBar from "@/components/NavBar/NavBar.jsx";
 import Subtitle from "@/components/tipography/subtitle/Subtitle.jsx";
 import Container from "@/components/container/Container.jsx";
-import SaleCard from "@/components/cards/SaleCard/SaleCard.jsx";
+import SaleCard from "@/components/cards/saleCard/SaleCard.jsx";
+import GameCard from "@/components/cards/gameCard/GameCard.jsx";
 
 export default function Home() {
   return (
@@ -33,7 +34,7 @@ export default function Home() {
           <div className={styles.session}>
             <Subtitle subtitle="Outro jogo" />
             <div>
-              <SaleCard />
+              <GameCard img_url='/products/counter-strike.jpg' />
             </div>
           </div>
         </Container>
