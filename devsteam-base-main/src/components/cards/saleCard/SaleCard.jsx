@@ -3,10 +3,10 @@ import styles from './SaleCard.module.css';
 import Image from 'next/image';
 import Button from "@/components/forms/button/Button";
 
-export default function SaleCard() {
+export default function SaleCard({img_src}) {
     return ( 
         <div className={styles.saleCard}>
-            <Image src='/products/league-of-legends.jpg' width={250} height={300} />
+            <Image src={img_src} width={250} height={300} />
             <div className={styles.info}>
                 <h3 className={styles.title}>Oferta exclusiva</h3>
                 <div className={styles.pricecard}>
