@@ -2,7 +2,7 @@ import styles from "./Input.module.css";
 
 export default function Input({ fullWidth, ...props }) {
   return (
-    <div className={styles.search}>
+    <div>
       <input
         className={`${styles.input} ${fullWidth && styles.fullWidth}`}
         {...props}
