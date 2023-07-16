@@ -1,18 +1,21 @@
-import styles from './CardButton.module.css'
+import styles from "./CardButton.module.css";
 import { BsCart4 } from "react-icons/bs";
-import CardMenu from '@/components/cardMenu/CardMenu.jsx'
+import CardMenu from "@/components/cardMenu/CardMenu.jsx";
 import { useState } from "react";
 
-export default function CardButton() {
+export default function CardButton({ cart, onRemove }) {
+  const [open, setOpen] = useState(false);
 
-    const [open, setOpen] = useState(false)
-
-    return (
-        <div>
-            <BsCart4 className={styles.icon} size={40} onClick={() => {setOpen(!open)}} />
-            {
-                open && <CardMenu />
-            }
-        </div>
-    );
+  return (
+    <div>
+      <BsCart4
+        className={styles.icon}
+        size={40}
+        onClick={() => {
+          setOpen(!open);
+        }}
+      />
+      {open && <CardMenu cart={cart} onRemove={onRemove} />}
+    </div>
+  );
 }
