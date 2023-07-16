@@ -1,0 +1,48 @@
+.menu {
+    background: #364A63;
+    width: 350px;
+    position: absolute;
+    top: 80px;
+    right: 150px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    z-index: 10;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.footer p {
+    color: #BEEB14;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+@media (max-width: 912px) {
+    .menu {
+        right: 70px;
+    }
+}
+
+@media (max-width: 540px) {
+    .menu {
+        width: 100%;
+        right: 0;
+    }
+}

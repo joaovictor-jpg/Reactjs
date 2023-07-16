@@ -26,9 +26,9 @@ export default function Home() {
           <div className={styles.session}>
             <Subtitle subtitle="Promoção" />
             <div className={styles.saleContainer}>
-              <SaleCard img_src='/products/league-of-legends.jpg' />
-              <SaleCard img_src='/products/dota-2.jpg' />
-              <SaleCard img_src='/products/valorant.jpg' />
+              <SaleCard img={'league-of-legends.jpg'} discount={30} fullPrice='100,99' discountPrice='99,99'/>
+              <SaleCard img={'dota-2.jpg'} discount={40} fullPrice='80,99' discountPrice='109,90'/>
+              <SaleCard img={'valorant.jpg'} discount={50} fullPrice='199,99' discountPrice='209,90'/>
             </div>
           </div>
           <div className={styles.session}>

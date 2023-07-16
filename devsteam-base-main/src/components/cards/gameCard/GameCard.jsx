@@ -6,7 +6,7 @@ import Button from "@/components/forms/button/Button";
 export default function GameCard({ img_url }) {
   return (
     <div className={styles.gameCard}>
-      <Image className={styles.image} src={img_url} width={300} height={145} />
+      <Image className={styles.image} alt='teste' src={img_url} width={300} height={145} />
       <div className={styles.info}>
         <h3 className={styles.title}>Counter strike: Global Offensive</h3>
         <p className={styles.category}>Ação, Estratégia, Multijogador.</p>
