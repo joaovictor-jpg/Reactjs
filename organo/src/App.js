@@ -52,6 +52,10 @@ function App() {
     setColaboradores([...colaboradores, colaborador]);
   }
 
+  const aoNovoTimeAdicionado = (time) => {
+    setTimes([...times, time]);
+  }
+
   function DeleterColaborador(id) {
     setColaboradores(colaboradores.filter(colaboradores => colaboradores.id !== id));
   }
@@ -68,7 +72,7 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.time)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
+      <Formulario times={times.map(time => time.time)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} novoTime={aoNovoTimeAdicionado} />
       {times.map(value => <Time
         key={value.id}
         id={value.id}
