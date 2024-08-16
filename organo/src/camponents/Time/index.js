@@ -7,7 +7,7 @@ const Time = (props) => {
         props.colaboradores.length > 0 ? <section className='time' style={{
             backgroundColor: hexToRgba(props.cor, '0.3')
         }}>
-            <input value={props.cor} onChange={evento => props.mudarCor(evento.target.value, props.time)} type='color' className='input-cor' />
+            <input value={props.cor} onChange={evento => props.mudarCor(evento.target.value, props.id)} type='color' className='input-cor' />
             <h3 style={
                 {
                     borderColor: props.cor
@@ -16,7 +16,8 @@ const Time = (props) => {
             <div className="colaboradores">
                 {props.colaboradores.map(colaborador => {
                     return <Card
-                        key={colaborador.nome}
+                        key={colaborador.id}
+                        id={colaborador.id}
                         nome={colaborador.nome}
                         cargo={colaborador.cargo}
                         imagem={colaborador.img}

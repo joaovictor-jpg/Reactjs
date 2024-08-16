@@ -3,6 +3,7 @@ import './Formulario.css';
 import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../listaSuspensa';
 import Botao from '../Botao';
+import { v4 as uuidv4 } from 'uuid';
 
 const Formulario = (props) => {
 
@@ -14,6 +15,7 @@ const Formulario = (props) => {
     const aoSalvar = (evento) => {
         evento.preventDefault();
         props.aoColaboradorCadastrado({
+            id: uuidv4(),
             nome,
             cargo,
             img,
