@@ -1,14 +1,16 @@
 import Card from '../Card';
 import './Time.css';
+import hexToRgba from 'hex-to-rgba';
 
 const Time = (props) => {
     return (
         props.colaboradores.length > 0 ? <section className='time' style={{
-            backgroundColor: props.corSecundario
+            backgroundColor: hexToRgba(props.cor, '0.3')
         }}>
+            <input value={props.cor} onChange={evento => props.mudarCor(evento.target.value, props.time)} type='color' className='input-cor' />
             <h3 style={
                 {
-                    borderColor: props.corPrimaria
+                    borderColor: props.cor
                 }
             }>{props.time}</h3>
             <div className="colaboradores">
@@ -19,7 +21,7 @@ const Time = (props) => {
                         cargo={colaborador.cargo}
                         imagem={colaborador.img}
                         time={colaborador.time}
-                        corDeFundo={props.corPrimaria}
+                        corDeFundo={props.cor}
                         aoDeletar={props.aoDeletar}
                     />
                 })}
