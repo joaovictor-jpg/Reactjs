@@ -61,7 +61,7 @@ function App() {
   }
 
   function mudarCorDoTime(cor, id) {
-    setTimes(times.map(time => {  
+    setTimes(times.map(time => {
       if (time.id === id) {
         time.cor = cor;
       }
@@ -69,10 +69,20 @@ function App() {
     }));
   }
 
+  function resolverFavorito(id) {
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito;
+      return colaborador;
+    }))
+  }
+
   return (
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.time)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} novoTime={aoNovoTimeAdicionado} />
+      <Formulario times={times.map(time => time.time)} 
+      aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
+      novoTime={aoNovoTimeAdicionado}
+      />
       {times.map(value => <Time
         key={value.id}
         id={value.id}
@@ -81,6 +91,7 @@ function App() {
         cor={value.cor}
         colaboradores={colaboradores.filter(colaborador => colaborador.time === value.time)}
         aoDeletar={DeleterColaborador}
+        aoFavoritar={resolverFavorito}
       />)}
       <Rodape />
     </div>

@@ -21,7 +21,8 @@ const Formulario = (props) => {
             nome,
             cargo,
             img,
-            time
+            time,
+            favorito: false
         });
         setNome('')
         setCargo('')
