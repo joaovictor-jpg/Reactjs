@@ -1,14 +1,13 @@
-import Banner from "componentes/Banner";
 import style from "./inicio.module.css";
 import posts from "json/posts.json";
-import Post from "componentes/Post";
+import PostCard from "componentes/PostCard";
 
 export default function Inicio() {
     return (
         <ul className={style.posts}>
             {posts.map((post) => (
                 <li key={post.id}>
-                    <Post post={post} />
+                    <PostCard post={post} />
                 </li>
             ))}
         </ul>
