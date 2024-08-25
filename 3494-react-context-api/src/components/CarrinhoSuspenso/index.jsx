@@ -2,10 +2,11 @@ import Botao from "@/components/Botao";
 import ListaProdutosCarrinho from "@/components/ListaProdutosCarrinho";
 import Titulo from "@/components/Titulo";
 import { useCarrinhoContext } from "@/hooks/useCarrinhoContext";
+import TotalCarrinho from "./TotalCarrinho";
 
 const CarrinhoSuspenso = () => {
 
-  const { carrinho, aoRemoveProdutoCarrinho } = useCarrinhoContext();
+  const { carrinho, aoRemoveProdutoCarrinho, valorTotal } = useCarrinhoContext();
 
   return (
     <div
@@ -34,7 +35,7 @@ const CarrinhoSuspenso = () => {
           carrinho={carrinho}
           removerProdutoCarrinho={aoRemoveProdutoCarrinho}
         />
-        {/*<TotalCarrinho valorTotalCarrinho={valorTotalCarrinho} />*/}
+        <TotalCarrinho valorTotalCarrinho={valorTotal} />
       </div>
     </div>
   );
