@@ -1,11 +1,20 @@
+import { Interface } from 'readline'
 import './CampoTexto.css'
 
-const CampoTexto = (props) => {
+interface CampoTextoProps {
+    placeholder: string
+    aoAlterado: (valor: string) => void
+    label: string
+    valor: string
+    obrigatorio: boolean
+}
+
+const CampoTexto = (props: CampoTextoProps) => {
 
     const placeholderModificada = `${props.placeholder}...` 
 
-    const aoDigitado = (evento) => {
-        props.aoAlterado(evento.target.value)
+    const aoDigitado = (evento: React.ChangeEvent<HTMLInputElement>) => {
+        props.aoAlterado(evento.target.value);
     }
 
     return (
