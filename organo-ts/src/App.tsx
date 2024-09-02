@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
 import Banner from './componentes/Banner'
+import { IColaborador } from './compartilhado/interfaces/IColaborador';
 
 function App() {
 
@@ -43,9 +44,9 @@ function App() {
     }
   ]
 
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaboradores] = useState<IColaborador[]>([])
 
-  const aoNovoColaboradorAdicionado = (colaborador) => {
+  const aoNovoColaboradorAdicionado = (colaborador: IColaborador) => {
     debugger
     setColaboradores([...colaboradores, colaborador])
   }
@@ -55,7 +56,7 @@ function App() {
       <Banner enderecoImagem='/imagens/banner.png' />
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
 
-      {times.map(time => <Time 
+      {times.map(time => <Time
         key={time.nome} 
         nome={time.nome} 
         corPrimaria={time.corPrimaria} 

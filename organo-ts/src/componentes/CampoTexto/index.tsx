@@ -1,4 +1,3 @@
-import { Interface } from 'readline'
 import './CampoTexto.css'
 
 interface CampoTextoProps {

@@ -17,7 +17,7 @@ const Formulario = (props: FormularioProps) => {
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
 
-    const aoSalvar = (evento) => {
+    const aoSalvar = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         props.aoColaboradorCadastrado({
             nome,
