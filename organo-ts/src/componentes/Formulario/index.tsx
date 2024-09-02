@@ -5,7 +5,7 @@ import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 import { IColaborador } from '../../compartilhado/interfaces/IColaborador'
 
-interface FormularioProps{
+interface FormularioProps {
     aoColaboradorCadastrado: (Colaborador: IColaborador) => void
     times: string[]
 }
@@ -16,6 +16,7 @@ const Formulario = (props: FormularioProps) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [data, setData] = useState('')
 
     const aoSalvar = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
@@ -23,41 +24,51 @@ const Formulario = (props: FormularioProps) => {
             nome,
             cargo,
             imagem,
-            time
+            time,
+            data
         })
         setNome('')
         setCargo('')
         setImagem('')
         setTime('')
+        setData('');
     }
 
     return (
         <section className="formulario">
             <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto 
+                <CampoTexto
                     obrigatorio={true}
                     label="Nome"
-                    placeholder="Digite seu nome" 
+                    placeholder="Digite seu nome"
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}
                 />
                 <CampoTexto
                     obrigatorio={true}
                     label="Cargo"
-                    placeholder="Digite seu cargo" 
+                    placeholder="Digite seu cargo"
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)}
                 />
                 <CampoTexto
                     label="Imagem"
-                    placeholder="Digite o endereço da imagem" 
+                    placeholder="Digite o endereço da imagem"
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}
                 />
+                <CampoTexto
+                    label="Isira a data de contratação"
+                    placeholder=''
+                    aoAlterado={valor => setData(valor)}
+                    valor={data}
+                    type='date'
+                    obrigatorio={true}
+                />
                 <ListaSuspensa
                     required={true}
-                    label="Time" 
+                    label="Time"
                     itens={props.times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
