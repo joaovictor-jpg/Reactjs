@@ -1,6 +1,13 @@
 .time {
     padding: 2rem;
     text-align: center;
+    position: relative;
+}
+
+.color {
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }
 
 .time h3 {
