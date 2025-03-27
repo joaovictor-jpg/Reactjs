@@ -1,4 +1,7 @@
 import styled from "styled-components"
+import { FcDislike, FcLike } from "react-icons/fc";
+import { useFavoritesContext } from "../Hooks/Favorites";
+import { Link } from "react-router-dom";
 
 const StiledDiv = styled.div`
     padding: 0 0 1em 0;
@@ -19,15 +22,36 @@ const StiledDiv = styled.div`
     .favoritar {
         width: 25px;
     }
+    .icon {
+        font-size: 24px;
+        padding-left: 27px;
+        cursor: pointer;
+    }
 `
 
+const StileLink = styled(Link)`
+    text-decoration: none;
+    color: var(--preto);
+    text-align: left;
+`
 
-export const Card = ({ titulo, capa, children }) => {
+export const Card = ({ id, titulo, capa }) => {
+
+    const { favorites, addFavorite } = useFavoritesContext()
+
+    const isFavorite = favorites.some(fav => fav.id === id)
+
+    function addFavorites() {
+        addFavorite({ id, titulo, capa })
+    }
+
     return (
         <StiledDiv>
-            <img src={capa} alt={titulo} className="capa" />
-            <h2>{titulo}</h2>
-            {children}
+            <StileLink to={`/${id}`}>
+                <img src={capa} alt={titulo} className="capa" />
+                <h2>{titulo}</h2>
+            </StileLink>
+            {!isFavorite ? <FcDislike className="icon" onClick={addFavorites} /> : <FcLike className="icon" onClick={addFavorites} />}
         </StiledDiv>
     )
 }

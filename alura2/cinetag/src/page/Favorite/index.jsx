@@ -1,18 +1,12 @@
 import { Banner } from "@/components/Banner"
-import { Titlo } from "@/components/Titlo"
-import videos from "../../../db.json"
 import { Card } from "@/components/Card"
 import { Container } from "@/components/Container"
 import { StyledMain } from "@/components/Main"
-import { FcLike } from "react-icons/fc";
-import styled from "styled-components"
-
-const IconeDinamico = styled(FcLike)`
-    font-size: 24px;
-    padding-left: 27px;
-`
+import { Titlo } from "@/components/Titlo"
+import { useFavoritesContext } from "@/components/Hooks/Favorites"
 
 export const Favorite = () => {
+    const { favorites } = useFavoritesContext()
     return (
         <>
             <Banner img="favoritos" />
@@ -21,10 +15,8 @@ export const Favorite = () => {
                     <h1>Meus Favoritos</h1>
                 </Titlo>
                 <StyledMain>
-                    {videos.map((video) => (
-                        <Card {...video} key={video.id}>
-                            <IconeDinamico />
-                        </Card>
+                    {favorites.map((video) => (
+                        <Card {...video} key={video.id} />
                     ))}
                 </StyledMain>
             </Container>
