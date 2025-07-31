@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import type { ILogin } from './model/Login';
 import './App.css'
 
+const api = 'http://localhost:3000/auth/login';
+
 function App() {
 
   const [loginData, setLoginData] = useState<ILogin>({
     email: '',
     password: ''
   });
+
+  const [token, setToken] = useState<string>();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -17,13 +21,35 @@ function App() {
     }));
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setLoginData({
-      email: '',
-      password: ''
-    });
+    try {
+      const response = await fetch(api, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`)
+      }
+
+      const result = await response.json();
+
+      setToken(result.token);
+
+      console.log(token);
+      
+      setLoginData({
+        email: '',
+        password: ''
+      });
+    } catch (error) {
+      alert(error);
+    }
   }
 
   return (
