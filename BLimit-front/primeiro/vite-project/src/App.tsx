@@ -47,8 +47,9 @@ function App() {
         email: '',
         password: ''
       });
-    } catch (error) {
-      alert(error);
+    } catch (error: Error | any) {
+      console.error('Erro ao fazer login:', error + ', mensagem: ' + error.message);
+      alert('Erro ao fazer login. Verifique os dados e tente novamente.');
     }
   }
 
